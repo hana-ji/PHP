@@ -17,6 +17,6 @@
       echo $_GET['id'];
     ?>
   </h2>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum doloremque quas expedita incidunt neque animi a. Nisi corporis ratione, quaerat repellendus, explicabo assumenda suscipit mollitia sapiente nulla magni vel nesciunt.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum doloremque quas expedita incidunt neque animi a. Nisi corporis ratione, quaerat repellendus, explicabo assumenda suscipit mollitia sapiente nulla magni vel nesciunt.
 </body>
 </html>
