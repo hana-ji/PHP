@@ -20,6 +20,8 @@
   <?php 
     // echo data/id 값에 해당하는 파일의 내용;
     echo file_get_contents("data/".$_GET['id']);
+    /* file_get_contents라는 함수를 통해서 id값으로 들어오는 값으로 프로그래밍 적으로 php를 통해서 경로로 전환해준 다음에 그것을 file_get_contents에 입력값으로 전해주면
+    그 입력값으로 들어온 경로에 해당되는 파일을 찾아서 표현해주는 표현식이다 */
   ?>
     
 </body>
