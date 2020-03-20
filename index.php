@@ -7,10 +7,24 @@
 <body>
   <h1><a href="index.php">WEB</a></h1>
   <ol>
-    <li><a href="index.php?id=HTML">HTML</a></li>
-    <li><a href="index.php?id=CSS">CSS</a></li>
-    <li><a href="index.php?id=JavaScript">JavaScript</a></li>
-  </ol>
+    <?php 
+      /* data디렉토리에 있는 파일의 목록을 가져오세요. PHP 씌
+        그 파일의 목록 하나 하나를 
+        li와 a 태그를 이용해서 글목록을 만드세요. */
+      $list = scandir('data');
+      $i = 0;
+      while($i<count($list)){
+        if($list[$i] != '.'){
+          if($list[$i] != '..'){
+          ?>
+          <li><a href="idex.php?id=<?=$list[$i]?>"><?=$list[$i]?></a></li>
+          <?php
+        }
+      }
+      $i = $i + 1;
+    }
+    ?>
+  </ol>  
   <h2>
     <!-- 만약에 id값이 있다면
           echo $_GET['id']; 를 실행시키고
