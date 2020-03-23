@@ -8,30 +8,24 @@
   <h1><a href="index.php">WEB</a></h1>
   <ol>
     <?php 
-      /* data디렉토리에 있는 파일의 목록을 가져오세요. PHP 씌
-        그 파일의 목록 하나 하나를 
-        li와 a 태그를 이용해서 글목록을 만드세요. */
-      $list = scandir('data');
+      $list = scandir('./data');
+      // scandir을 사용하니 ., .., css 이런순으로 오는데 0 1 2 이런 순이라서 $i 의 값을 2로 시작해도 . .. 은 안보이는데 항상 . .. 으로 온다는 보장이 없음
       $i = 0;
-      while($i<count($list)){
-        if($list[$i] != '.'){
+      // 데이터 디렉토리 안의 파일의 숫자만큼 반복문이 실행 
+      while($i < count($list)){
+        // 현재 실행되고 있는 순서에 따른 항목 $list[$i]
+        if($list[$i] != '.'){             /* 양쪽 항이 다를 때 참이 됨 */
           if($list[$i] != '..'){
-          ?>
-          <li><a href="idex.php?id=<?=$list[$i]?>"><?=$list[$i]?></a></li>
-          <?php
+        echo "<li><a href=\"idnex.php?id=$list[$i]\">$list[$i]</a></li>\n";
         }
       }
-      $i = $i + 1;
-    }
+        $i = $i + 1 ;
+      }
+
     ?>
   </ol>  
   <h2>
-    <!-- 만약에 id값이 있다면
-          echo $_GET['id']; 를 실행시키고
-         없다면
-          echo "Welcome"; 을 실행시킨다 -->
     <?php
-    // $_GET[id]의 값이 isset(있다면) true가 됨 값이 없다면 if의 값이 false가 되서 else에 있는 부분이 출력됨
     if(isset($_GET['id'])){
       echo $_GET['id'];
     } else {
@@ -40,13 +34,9 @@
     ?>
   </h2>
   <?php 
-  // $_GET['id'가 있다면(true)
   if(isset($_GET['id'])){
-    // 여기가 실행될것이고
     echo file_get_contents("data/".$_GET['id']);
-    // 없다면(false)
   } else {
-    // 여기가 실행될것이다
     echo "Hello, PHP";
   }
   ?>
