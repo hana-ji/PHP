@@ -46,15 +46,13 @@
     ?>
   </ol>  
   <a href="create.php">create</a>
-  <!-- isset : 인자로 들어오는 값이 있는지 없는지 체크 -->
   <?php if(isset($_GET['id'])) { ?>
-    <!-- if문과 {} 사이에있는 update는 id값이 set(존재)해야지만 출력됨 -->
-    <!-- ㄴ 수정하려면 수정하려는 내용이 뭔 지 알아야 함
-            (= 현재 우리가 보고있는 페이지에 대한 id값을 물고들어가야함) -->
-    <!-- echo를 써야하는 경우  -->
-    <!-- <a href="update.php?id=<?php echo $_GET['id']; ?>">update</a> -->
-    <!-- 이렇게 바꾸면 더 깔끔함 -->
     <a href="update.php?id=<?=$_GET['id']?>">update</a>
+    <!-- link를 클릭하자 데이터가 삭제되면 ex) 친구한테 삭제링크 공유하면 친구가 그 링크 클릭하자마자 데이터가 삭제됨 -->
+    <form action="delete_process.php" method="post">
+      <input type="hidden" name="id" value="<?=$_GET['id']?>">
+      <input type="submit" value="delete">
+    </form>
   <?php } ?>
   <h2>
     <?php
