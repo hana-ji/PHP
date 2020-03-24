@@ -15,17 +15,15 @@
   }
   function print_list(){
     $list = scandir('./data');
-    $i = 0;
-    while($i < count($list)){
-      if($list[$i] != '.'){
-        if($list[$i] != '..'){
-          if($list[$i] != '.DS_Store'){
-          echo "<li><a href=\"index.php?id=$list[$i]\">$list[$i]</a></li>\n";
-          }
-        }  
+      $i = 0;
+      while($i < count($list)){
+        if($list[$i] != '.'){
+          if($list[$i] != '..'){
+        echo "<li><a href=\"index.php?id=$list[$i]\">$list[$i]</a></li>\n";
+        }
       }
-      $i = $i + 1 ;
-    }
+        $i = $i + 1 ;
+      }
   }
 ?>
 <!DOCTYPE html>
@@ -46,13 +44,17 @@
     ?>
   </ol>  
   <a href="create.php">create</a>
-  <h2>
-    <?php
-      print_title();
-    ?>
-  </h2>
-  <?php 
-    print_description();
-  ?>
+  <form action="create_process.php" method="post">
+    <p>
+      <input type="text" name="title" placeholder="Title">
+    </p>
+    <p>
+      <textarea name="description" placeholder="Description"></textarea>
+    </p>
+    <p>
+      <input type="submit">
+    </p>
+
+  </form>
 </body>
 </html>

@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <!-- 폼 태그는 폼태그 안에있는 있는 폼과 관련된 사용자로부터 정보를 받는 각각의 UI에 사용자가 어떤 값을 입력하면 
-      그 값들을 네임의 속성값을 이름으로해서 submit 버튼을 누르면 그 submit 버튼이 속해있는 
-      폼 태그의 액션속성이 가르키는 url로 웹브라우저가 그 url을 샥 바꾸면서 그 유알엘 뒤에다가 유알엘을 만들어서 가버림-->
     <form action="form.php" method="post">
-      <!-- 입력한 정보를 서버쪽에 title이라는 이름으로 전송하고 싶을때 name=title -->
       <p><input type="text" name="title" placeholder="Title" /></p>
       <p><textarea name="description"></textarea></p>
       <p><input type="submit" /></p>
     </form>
-    <!-- 폼태그 : 사용자가 입력한 정보를 유알엘 파라미터로 만들어내는 기계 -->
   </body>
 </html>
