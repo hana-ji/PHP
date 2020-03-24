@@ -64,5 +64,22 @@
   <?php 
     print_description();
   ?>
+<!-- 수정할 때 폼 필요 -->
+  <form action="update_process.php" method="post">
+    <!-- hidden: 사용자에게는 노출 x, submit 버튼 눌렀을 때 액션이 가르키는 애플리케이션으로 어떤 데이터를 전송하고 싶을 때 -->
+    <input type="hidden" name="old_title" value="<?=$_GET['id']?>">
+    <!--  -->
+    <p>
+      <!-- 수정 할 내용이 폼에 채워져 있어야함 -> value(:기본값 설정해주는 애)로 값 설정 -->
+      <!-- 서버에 data 전송 할 때 title이라는 name으로 전달 -> title은 수정될 파일 명, 이전 파일명에 대한 정보를 따로 서버에 보내주면 됨 -->
+      <input type="text" name="title" placeholder="Title" value="<?php print_title(); ?>">
+    </p>
+    <p>
+      <textarea name="description" placeholder="Description"><?php print_description(); ?></textarea>
+    </p>
+    <p>
+      <input type="submit">
+    </p>
+  </form>
 </body>
 </html>
