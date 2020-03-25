@@ -9,8 +9,10 @@
   }
   function print_description(){
     if(isset($_GET['id'])){
-//    본문을 htmlspecialchars로 해버리면 이미지 태그나 줄바꿈 태그 등을 못할 수 있음
-      echo htmlspecialchars(file_get_contents("data/".$_GET['id']));
+//    경로 타고 와서 유출 할수 있기때문에 파일 명만 보이게 함
+      $basename = basename($_GET['id']);
+//    본문을 htmlspecialchars로 해버리면 이미지 태그나 줄바꿈 태그 등을 못할 수 있음 -> strip_tags 알아보기
+      echo htmlspecialchars(file_get_contents("data/".$basename ));
     } else {
       echo "Hello, PHP";
     }
